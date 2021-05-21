@@ -7,6 +7,7 @@ class CardsService{
     }
     removeCard(cardId){
         ProxyState.cards = ProxyState.cards.filter(c => c.id != cardId)
+        ProxyState.cards = ProxyState.cards
     }
 }
 
