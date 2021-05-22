@@ -1,6 +1,7 @@
 import { ProxyState } from "../AppState.js"
 import { cardService } from "../Services/CardsService.js"
 import { taskService } from "../Services/TasksService.js"
+import { loadState } from "../Utils/LocalStorage.js"
 
  function _drawCards(){
             let template=''
@@ -17,8 +18,8 @@ import { taskService } from "../Services/TasksService.js"
                                     </button>
                                 </div>
                                 <h3 class="card-title pt-2 ">${c.title}</h3>
-                                <h5>Tasks Completed</h5>
-                                <p class="pb-2"><span>${thisCardsTasks.filter(t => t.checked === true).length}</span> / <span>${thisCardsTasks.length}</span></p>
+                                <h4>Tasks Completed</h4>
+                                <h5 class="pb-2"><span>${thisCardsTasks.filter(t => t.checked === true).length}</span> / <span>${thisCardsTasks.length}</span></h5>
                             </div>
                             `
                             
@@ -32,7 +33,7 @@ import { taskService } from "../Services/TasksService.js"
                                 <input title="Task Completed" type="checkbox" class="form-check-input" onclick="app.cardsController.checkboxChecker('${t.id}')" ${t.checked ? 'checked' : ''}
                                     id="exampleCheck1">
                                 <div class="d-flex justify-content-between">
-                                    <li class="my-li">${t.name}</li>
+                                    <li style="text-decoration-color: ${c.color};" class="my-li ${t.checked ? 'my-strike' : ''}"><h5>${t.name}</h5></li>
                                     <div class="mr-2">
                                         <button title="Delete Task" class="btn my-x-btn" onclick="app.cardsController.removeTask('${t.id}','${c.id}')">
                                             <i class="fa fa-times-circle-o m-0 text-danger"></i>
@@ -61,6 +62,7 @@ import { taskService } from "../Services/TasksService.js"
 
 export class CardsController{
     constructor(){
+        loadState()
         ProxyState.on('cards',_drawCards)
         ProxyState.on('tasks',_drawCards)
         _drawCards()

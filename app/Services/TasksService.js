@@ -1,5 +1,6 @@
 import { ProxyState } from "../AppState.js"
 import { Task } from "../Models/Task.js"
+import { saveState } from "../Utils/LocalStorage.js"
 
 
 const Toast = Swal.mixin({
@@ -32,6 +33,7 @@ class TasksService{
     addTask(taskData){
         ProxyState.tasks = [...ProxyState.tasks, new Task(taskData)]
         ProxyState.tasks=ProxyState.tasks
+        saveState()
         Toast.fire({
         title: 'Task Created!'
         })
@@ -50,9 +52,10 @@ class TasksService{
             let task= ProxyState.tasks.find(t=>t.id===taskId)
             Toast.fire({
             icon: 'error',
-            title: `Removed Task: ${task.name}`
+            title: `Removed${task.name.length>18 ? ' Task' : `: ${task.name}`}`
             })
             ProxyState.tasks = ProxyState.tasks.filter(t => t.id != taskId)
+            saveState()
         }
         })
 
@@ -63,12 +66,13 @@ class TasksService{
         task.checked = !task.checked
         ProxyState.tasks.splice(taskIndex, 1, task)
         ProxyState.tasks=ProxyState.tasks
-        console.log(ProxyState.tasks);
+        saveState()
 
+        if(task.checked){
         Toast.fire({
         icon: 'success',
-        title: `Completed: ${task.name}`
-        })
+        title: `Completed${task.name.length>18 ? ' Task' : `: ${task.name}`}`
+        })}
         
     }
 }
