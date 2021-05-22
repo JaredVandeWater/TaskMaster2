@@ -33,7 +33,7 @@ import { taskService } from "../Services/TasksService.js"
                                 <input title="Task Completed" type="checkbox" class="form-check-input"
                                     id="exampleCheck1">
                                 <div class="d-flex justify-content-between">
-                                    <li>${t.name}</li>
+                                    <li class="my-li">${t.name}</li>
                                     <div class="mr-2">
                                         <button title="Delete Task" class="btn my-x-btn" onclick="app.cardsController.removeTask('${t.id}','${c.id}')">
                                             <i class="fa fa-times-circle-o m-0 text-danger"></i>
@@ -46,7 +46,7 @@ import { taskService } from "../Services/TasksService.js"
                             `
                             <form class="form-group" onsubmit="app.cardsController.addTask(event, '${c.id}')">
                                 <div class="d-flex">
-                                    <input class="form-control ml-2" type="text" id="name" placeholder="New Task..." required>
+                                    <input class="form-control ml-2" type="text" id="name" placeholder="New Task..." required minLength="3" maxLength="50">
                                     <button title="Submit New Task" class="btn text-success px-1 pr-2" type="submit"><i
                                             class="fa fa-plus-square fa-lg" aria-hidden="true"></i></i></button>
                                 </div>

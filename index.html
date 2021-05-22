@@ -23,7 +23,8 @@
                 <form onsubmit="app.cardsController.addCard(event)">
                     <div class="my-nav-items">
                         <label for="create-card"></label>
-                        <input type="text" name="" id="title" class="form-control" placeholder="Card Title...">
+                        <input type="text" name="" id="title" class="form-control" placeholder="Card Title..." required
+                            minlength="3" maxlength="15">
                         <label for="create-color"></label>
                         <input class="mx-2" type="color" id="color">
                         <button title="Create Card" type="submit" class="btn btn-info">Create</button>

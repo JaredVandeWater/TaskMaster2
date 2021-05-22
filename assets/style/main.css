@@ -10717,3 +10717,6 @@ li{
 .my-d-contents{
   display: contents;
 }
+.my-li{
+  overflow-wrap:anywhere;
+}
