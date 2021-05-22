@@ -55,8 +55,10 @@ import { cardService } from "../Services/CardsService.js"
                     </div>
                 </div>`
 
-                document.getElementById('cardsHTML').innerHTML=template
-            })}
+            })
+            
+            document.getElementById('cardsHTML').innerHTML=template
+        }
 
 export class CardsController{
     constructor(){
@@ -80,5 +82,17 @@ export class CardsController{
 
     removeCard(cardId){
         cardService.removeCard(cardId)
+        console.log(ProxyState.tasks);
+        _drawCards()
+    }
+
+    addTask(event){
+        event.preventDefault()
+            let form =event.target
+            let taskData = {
+                name: form.name.value
+
+            }
+        
     }
 }
