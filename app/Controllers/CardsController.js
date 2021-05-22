@@ -1,5 +1,6 @@
 import { ProxyState } from "../AppState.js"
 import { cardService } from "../Services/CardsService.js"
+import { taskService } from "../Services/TasksService.js"
 
  function _drawCards(){
             let template=''
@@ -17,13 +18,14 @@ import { cardService } from "../Services/CardsService.js"
                                 </div>
                                 <h3 class="card-title pt-2 ">${c.title}</h3>
                                 <h5>Tasks Completed</h5>
-                                <p class="pb-2"><span>0</span> / <span>0</span></p>
+                                <p class="pb-2"><span>${ProxyState.tasks.filter(t => t)}</span> / <span>0</span></p>
                             </div>
                             
                             `
                             
                             thisCardsTasks.forEach(t => {
-                                template+=
+                                if(t.cardId === c.id){}
+                                template+=/*HTML*/
                                 `
                                 <ul class="d-flex flex-column">
                                 <label class="form-check-label sr-only" for="exampleCheck1">Task completed
@@ -31,20 +33,20 @@ import { cardService } from "../Services/CardsService.js"
                                 <input title="Task Completed" type="checkbox" class="form-check-input"
                                     id="exampleCheck1">
                                 <div class="d-flex justify-content-between">
-                                    <li>Task</li>
+                                    <li>${t.name}</li>
                                     <div class="mr-2">
-                                        <button title="Delete Task" class="btn my-x-btn" onsubmit="app.cardsController.removeTask(${t.id, c.id})">
+                                        <button title="Delete Task" class="btn my-x-btn" onclick="app.cardsController.removeTask('${t.id}','${c.id}')">
                                             <i class="fa fa-times-circle-o m-0 text-danger"></i>
                                         </button>
                                     </div>
                                 </div>
                             </ul>`
                                     });
-                            template+=
+                            template+=/*HTML*/
                             `
-                            <form class="form-group" onsubmit="app.cardsController.addChecklistItem(event)">
+                            <form class="form-group" onsubmit="app.cardsController.addTask(event, '${c.id}')">
                                 <div class="d-flex">
-                                    <input class="form-control ml-2" type="text" placeholder="New Task..." required>
+                                    <input class="form-control ml-2" type="text" id="name" placeholder="New Task..." required>
                                     <button title="Submit New Task" class="btn text-success px-1 pr-2" type="submit"><i
                                             class="fa fa-plus-square fa-lg" aria-hidden="true"></i></i></button>
                                 </div>
@@ -60,9 +62,11 @@ import { cardService } from "../Services/CardsService.js"
             document.getElementById('cardsHTML').innerHTML=template
         }
 
+
 export class CardsController{
     constructor(){
         ProxyState.on('cards',_drawCards)
+        ProxyState.on('tasks',_drawCards)
         _drawCards()
     }
        
@@ -82,17 +86,19 @@ export class CardsController{
 
     removeCard(cardId){
         cardService.removeCard(cardId)
-        console.log(ProxyState.tasks);
-        _drawCards()
     }
 
-    addTask(event){
+    addTask(event, cardId){
         event.preventDefault()
-            let form =event.target
-            let taskData = {
-                name: form.name.value
-
+        let form =event.target
+        let taskData = {
+            name: form.name.value,
+            cardId: cardId
             }
-        
+            
+        taskService.addTask(taskData)
+    }
+    removeTask(taskId, cardId){
+        taskService.removeTask(taskId, cardId)
     }
 }
