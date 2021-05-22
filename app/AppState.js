@@ -1,11 +1,12 @@
 import { Card } from "./Models/Card.js"
+import { Task } from "./Models/Task.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
 
 class AppState extends EventEmitter {
     /** @type {Card[]} */
   cards = []
-      /** @type {Card[]} */
+      /** @type {Task[]} */
   tasks=[]
 }
 

@@ -5,8 +5,8 @@ import { taskService } from "../Services/TasksService.js"
  function _drawCards(){
             let template=''
             ProxyState.cards.forEach(c=>{
-                let thisCardsTasks = ProxyState.tasks.filter(t => t.id = c.id)
-                template+=/*HTML*/`
+                let thisCardsTasks = ProxyState.tasks.filter(t=>t.cardId===c.id)
+                template+=`
                     <div class="col-lg-4 mt-3">
                     <div class="card shadow">
                         <div>
@@ -18,14 +18,14 @@ import { taskService } from "../Services/TasksService.js"
                                 </div>
                                 <h3 class="card-title pt-2 ">${c.title}</h3>
                                 <h5>Tasks Completed</h5>
-                                <p class="pb-2"><span>${ProxyState.tasks.filter(t => t)}</span> / <span>0</span></p>
+                                <p class="pb-2"><span>${ProxyState.tasks.filter(t => t)}</span> / <span>${thisCardsTasks.length}</span></p>
                             </div>
                             
                             `
                             
                             thisCardsTasks.forEach(t => {
-                                if(t.cardId === c.id){}
-                                template+=/*HTML*/
+
+                                template+=
                                 `
                                 <ul class="d-flex flex-column">
                                 <label class="form-check-label sr-only" for="exampleCheck1">Task completed
@@ -42,7 +42,7 @@ import { taskService } from "../Services/TasksService.js"
                                 </div>
                             </ul>`
                                     });
-                            template+=/*HTML*/
+                            template+=
                             `
                             <form class="form-group" onsubmit="app.cardsController.addTask(event, '${c.id}')">
                                 <div class="d-flex">
@@ -58,7 +58,6 @@ import { taskService } from "../Services/TasksService.js"
                 </div>`
 
             })
-            
             document.getElementById('cardsHTML').innerHTML=template
         }
 
