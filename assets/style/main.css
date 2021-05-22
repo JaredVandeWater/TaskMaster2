@@ -10720,18 +10720,17 @@ li{
 .my-li{
   overflow-wrap:anywhere;
 }
-.my-z{
-  z-index: 100000000;
-}
 
 .my-toast{
-    width:17rem !important;
-    height: 3rem !important;
+    min-width:17rem !important;
+    max-width: 24rem !important;
+    min-height: 3.5rem !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     padding: 0 !important;
-    
+    overflow-wrap:break-word;
+    flex-wrap: wrap !important; 
     
 }
 .my-swal-container{

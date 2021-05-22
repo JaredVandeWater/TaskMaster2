@@ -18,7 +18,7 @@ import { taskService } from "../Services/TasksService.js"
                                 </div>
                                 <h3 class="card-title pt-2 ">${c.title}</h3>
                                 <h5>Tasks Completed</h5>
-                                <p class="pb-2"><span>${ProxyState.tasks.filter(t => t)}</span> / <span>${thisCardsTasks.length}</span></p>
+                                <p class="pb-2"><span>${thisCardsTasks.filter(t => t.checked === true).length}</span> / <span>${thisCardsTasks.length}</span></p>
                             </div>
                             `
                             

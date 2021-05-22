@@ -6,9 +6,22 @@ const Toast = Swal.mixin({
   toast: true,
   position: 'top-start',
   showConfirmButton: false,
-  timer: 3000000,
+  timer: 3000,
   timerProgressBar: true,
-  customClass: 'my-toast',
+  customClass: {
+    container: 'my-swal-container',
+    popup: 'my-toast',
+    header: 'your-header-class',
+    title: 'your-title-class',
+    closeButton: 'your-close-button-class',
+    image: 'your-image-class',
+    content: 'your-content-class',
+    input: 'your-input-class',
+    actions: 'your-actions-class',
+    confirmButton: 'your-confirm-button-class',
+    cancelButton: 'your-cancel-button-class',
+    footer: 'your-footer-class'
+},
   didOpen: (toast) => {
     toast.addEventListener('mouseenter', Swal.stopTimer)
     toast.addEventListener('mouseleave', Swal.resumeTimer)
@@ -20,7 +33,6 @@ class CardsService{
         ProxyState.cards=[new Card(cardData), ...ProxyState.cards]
         let latestCard= ProxyState.cards[0]
         Toast.fire({
-        icon: '',
         title: `New Card: ${latestCard.title}`
         })
     }
