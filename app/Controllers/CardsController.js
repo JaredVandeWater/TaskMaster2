@@ -3,12 +3,13 @@ import { cardService } from "../Services/CardsService.js"
 import { taskService } from "../Services/TasksService.js"
 import { loadState } from "../Utils/LocalStorage.js"
 
+
  function _drawCards(){
             let template=''
             ProxyState.cards.forEach(c=>{
                 let thisCardsTasks = ProxyState.tasks.filter(t=>t.cardId===c.id)
                 template+=`
-                    <div class="col-lg-4 mt-3">
+                    <div class="justify-content-center col-lg-3 col-md-4 my-auto pt-2">
                     <div class="card shadow">
                         <div>
                             <div class="text-center my-white-text" style="background-color: ${c.color};">
@@ -56,12 +57,17 @@ import { loadState } from "../Utils/LocalStorage.js"
                 </div>`
 
             })
+
             document.getElementById('cardsHTML').innerHTML=template
         }
 
+function setColorPicker(){
+    document.getElementById('color').setAttribute('value', `#${Math.floor(Math.random()*16777215).toString(16)}`)
+}
 
 export class CardsController{
     constructor(){
+        setColorPicker()
         loadState()
         ProxyState.on('cards',_drawCards)
         ProxyState.on('tasks',_drawCards)
@@ -78,6 +84,7 @@ export class CardsController{
         }
         cardService.addCard(cardData)
         form.reset()
+        setColorPicker()
     }
 
     removeCard(cardId){
