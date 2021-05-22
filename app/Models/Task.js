@@ -1,10 +1,10 @@
 import { generateId } from "../Utils/genId.js"
 
 export class Task{
-    constructor({name, checked=false, cardId, id=generateId()}){
+    constructor({name, cardId, checked, id=generateId()}){
         this.name=name
-        this.checked=checked
         this.cardId = cardId
         this.id=id
+        this.checked = checked
     }
 }

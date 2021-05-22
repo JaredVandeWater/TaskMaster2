@@ -25,12 +25,12 @@ import { taskService } from "../Services/TasksService.js"
                             
                             thisCardsTasks.forEach(t => {
 
-                                template+=
+                                template+=/*html*/
                                 `
                                 <ul class="d-flex flex-column">
                                 <label class="form-check-label sr-only" for="exampleCheck1">Task completed
                                     Checkbox</label>
-                                <input title="Task Completed" type="checkbox" class="form-check-input"
+                                <input title="Task Completed" type="checkbox" class="form-check-input" onclick="app.cardsController.checkboxChecker('${t.id}',${t.checked})" ${t.checked ? ['checked', `${t.checked = true}`] : ['' ,`${t.checked=false}`]}
                                     id="exampleCheck1">
                                 <div class="d-flex justify-content-between">
                                     <li class="my-li">${t.name}</li>
@@ -99,5 +99,8 @@ export class CardsController{
     }
     removeTask(taskId, cardId){
         taskService.removeTask(taskId, cardId)
+    }
+    checkboxChecker(taskId,isChecked){
+        taskService.checkboxChecker(taskId,isChecked)
     }
 }
