@@ -1,4 +1,5 @@
 import { ProxyState } from "../AppState.js"
+import { CardsController } from "../Controllers/CardsController.js"
 import { Card } from "../Models/Card.js"
 
 class CardsService{
@@ -7,7 +8,6 @@ class CardsService{
     }
     removeCard(cardId){
         ProxyState.cards = ProxyState.cards.filter(c => c.id != cardId)
-        ProxyState.cards = ProxyState.cards
     }
 }
 
