@@ -20,7 +20,6 @@ import { taskService } from "../Services/TasksService.js"
                                 <h5>Tasks Completed</h5>
                                 <p class="pb-2"><span>${ProxyState.tasks.filter(t => t)}</span> / <span>${thisCardsTasks.length}</span></p>
                             </div>
-                            
                             `
                             
                             thisCardsTasks.forEach(t => {
@@ -30,7 +29,7 @@ import { taskService } from "../Services/TasksService.js"
                                 <ul class="d-flex flex-column">
                                 <label class="form-check-label sr-only" for="exampleCheck1">Task completed
                                     Checkbox</label>
-                                <input title="Task Completed" type="checkbox" class="form-check-input" onclick="app.cardsController.checkboxChecker('${t.id}',${t.checked})" ${t.checked ? ['checked', `${t.checked = true}`] : ['' ,`${t.checked=false}`]}
+                                <input title="Task Completed" type="checkbox" class="form-check-input" onclick="app.cardsController.checkboxChecker('${t.id}')" ${t.checked ? 'checked' : ''}
                                     id="exampleCheck1">
                                 <div class="d-flex justify-content-between">
                                     <li class="my-li">${t.name}</li>
@@ -51,8 +50,6 @@ import { taskService } from "../Services/TasksService.js"
                                             class="fa fa-plus-square fa-lg" aria-hidden="true"></i></i></button>
                                 </div>
                             </form>
-
-
                         </div>
                     </div>
                 </div>`
@@ -69,8 +66,6 @@ export class CardsController{
         _drawCards()
     }
        
-    
-
         
     addCard(event){
         event.preventDefault()
@@ -94,13 +89,12 @@ export class CardsController{
             name: form.name.value,
             cardId: cardId
             }
-            
         taskService.addTask(taskData)
     }
     removeTask(taskId, cardId){
         taskService.removeTask(taskId, cardId)
     }
-    checkboxChecker(taskId,isChecked){
-        taskService.checkboxChecker(taskId,isChecked)
+    checkboxChecker(taskId){
+        taskService.checkboxChecker(taskId)
     }
 }

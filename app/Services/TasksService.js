@@ -14,9 +14,6 @@ const Toast = Swal.mixin({
   }
 })
 
-
-
-
 class TasksService{
     addTask(taskData){
         ProxyState.tasks = [...ProxyState.tasks, new Task(taskData)]
@@ -47,14 +44,17 @@ class TasksService{
         })
 
     }
-    checkboxChecker(taskId, isChecked){
-    let task= ProxyState.tasks.find(t=>t.id===taskId)
+    checkboxChecker(taskId){
+        let task= ProxyState.tasks.find(t=>t.id===taskId)
+        let taskIndex = ProxyState.tasks.indexOf(task)
+        task.checked = !task.checked
+        ProxyState.tasks = ProxyState.tasks.splice(taskIndex, 1, task)
+        console.log(ProxyState.tasks);
 
-
-    Toast.fire({
-    icon: 'success',
-    title: `Completed: ${task.name}`
-    })
+        Toast.fire({
+        icon: 'success',
+        title: `Completed: ${task.name}`
+        })
         
     }
 }

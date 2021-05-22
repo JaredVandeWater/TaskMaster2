@@ -4,23 +4,23 @@ import { Card } from "../Models/Card.js"
 
 const Toast = Swal.mixin({
   toast: true,
-  position: 'bottom-end',
+  position: 'top-start',
   showConfirmButton: false,
-  timer: 3000,
+  timer: 3000000,
   timerProgressBar: true,
+  customClass: 'my-toast',
   didOpen: (toast) => {
     toast.addEventListener('mouseenter', Swal.stopTimer)
     toast.addEventListener('mouseleave', Swal.resumeTimer)
   }
 })
 
-
 class CardsService{
     addCard(cardData){
-        ProxyState.cards=[...ProxyState.cards, new Card(cardData)]
+        ProxyState.cards=[new Card(cardData), ...ProxyState.cards]
         let latestCard= ProxyState.cards[0]
         Toast.fire({
-        icon: 'info',
+        icon: '',
         title: `New Card: ${latestCard.title}`
         })
     }
