@@ -35,6 +35,7 @@ class CardsService{
         ProxyState.cards=[...ProxyState.cards, new Card(cardData)]
         saveState()
         let latestCard= ProxyState.cards[ProxyState.cards.length-1]
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
         Toast.fire({
         icon: 'info',
         title: `Card Created: ${latestCard.title}`
