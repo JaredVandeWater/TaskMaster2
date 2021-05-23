@@ -86,7 +86,6 @@ export class CardsController{
             color: form.color.value
         }
         cardService.addCard(cardData)
-        console.log('reset');
         form.reset()
         setColorPicker()
     }
