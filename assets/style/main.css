@@ -10760,7 +10760,7 @@ li{
 }
 
 .my-background{
-  background-image:url('/assets/img/beige-tiles.png');
+  background-image:url('./assets/img/beige-tiles.png');
   background-repeat: round;
 }
 
@@ -10834,3 +10834,4 @@ header{
                      to(#19911D),
                      color-stop(.6,#54DE5D))
 
+}
