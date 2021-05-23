@@ -63,7 +63,9 @@ import { loadState } from "../Utils/LocalStorage.js"
         }
 
 function setColorPicker(){
-    document.getElementById('color').setAttribute('value', `#${Math.floor(Math.random()*16777215).toString(16)}`)
+    let randColor = `#${Math.floor(Math.random()*16777215).toString(16)}`
+    document.getElementById('color').setAttribute('value', `${randColor}`)
+    document.getElementById('color').setAttribute('style', `background-color: ${randColor};`)
 }
 
 export class CardsController{

@@ -10767,3 +10767,17 @@ border-radius: 0, 0, 50%, 50%;
 .my-card-top{
 border-radius: 50%, 50%, 0, 0;
 }
+
+.my-color-picker{
+  margin:0;
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  border: outset;
+  border-color: white;
+  border-style: solid;
+  
+}
+.my-color-picker:focus{
+  outline: none;
+}

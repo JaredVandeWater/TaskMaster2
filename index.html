@@ -15,7 +15,7 @@
 <body>
     <header>
         <nav class="navbar navbar-dark navbar-expand bg-dark text-light d-flex justify-content-between">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand">
                 <img src="https://freesvg.org/img/Checkmark.png" width="45" height="45" alt="" loading="lazy">
                 <span class="ml-2 d-none d-md-inline">TaskMaster</span>
             </a>
@@ -23,10 +23,10 @@
                 <form onsubmit="app.cardsController.addCard(event)">
                     <div class="my-nav-items">
                         <label for="create-card" class="sr-only"></label>
-                        <input type="text" name="" id="title" class="form-control" placeholder="Card Title..." required
-                            minlength="3" maxlength="15">
+                        <input type="text" name="" id="title" class="form-control" title="New Card Title"
+                            placeholder="Card Title..." required minlength="3" maxlength="15">
                         <label for="create-color" class="sr-only"></label>
-                        <input class="mx-2" title="Color Picker" type="color" id="color">
+                        <input class="mx-2 my-color-picker" title="Color Picker" type="color" id="color">
                         <button title="Create Card" type="submit" class="btn btn-info">Create</button>
                     </div>
                 </form>
