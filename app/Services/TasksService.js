@@ -7,14 +7,15 @@ const Toast = Swal.mixin({
   toast: true,
   position: 'top-start',
   showConfirmButton: false,
-  timer: 3008588585850,
+  timer: 2500,
   timerProgressBar: true,
   customClass: {
     container: 'my-swal-container',
     popup: 'my-toast',
     header: 'your-header-class',
-    title: 'your-title-class',
+    title: 'my-swal-title',
     closeButton: 'your-close-button-class',
+    icon: 'my-swal-icon',
     image: 'your-image-class',
     content: 'your-content-class',
     input: 'your-input-class',
@@ -29,13 +30,18 @@ const Toast = Swal.mixin({
   }
 })
 
+
 class TasksService{
+    
+
+
     addTask(taskData){
         ProxyState.tasks = [...ProxyState.tasks, new Task(taskData)]
-        ProxyState.tasks=ProxyState.tasks
         saveState()
+        let latestTask= ProxyState.tasks[ProxyState.tasks.length-1]
         Toast.fire({
-        title: 'Task Created!'
+        icon: 'info',
+        title: `Task Created${latestTask.name.length>18 ? '' : `: ${latestTask.name}`}`
         })
         
     }

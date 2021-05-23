@@ -7,14 +7,15 @@ const Toast = Swal.mixin({
   toast: true,
   position: 'top-start',
   showConfirmButton: false,
-  timer: 3000,
+  timer: 2500,
   timerProgressBar: true,
   customClass: {
     container: 'my-swal-container',
     popup: 'my-toast',
     header: 'your-header-class',
-    title: 'your-title-class',
+    title: 'my-swal-title',
     closeButton: 'your-close-button-class',
+    icon: 'my-swal-icon',
     image: 'your-image-class',
     content: 'your-content-class',
     input: 'your-input-class',
@@ -31,12 +32,12 @@ const Toast = Swal.mixin({
 
 class CardsService{
     addCard(cardData){
-        ProxyState.cards=[new Card(cardData), ...ProxyState.cards]
+        ProxyState.cards=[...ProxyState.cards, new Card(cardData)]
         saveState()
-        let latestCard= ProxyState.cards[0]
+        let latestCard= ProxyState.cards[ProxyState.cards.length-1]
         Toast.fire({
         icon: 'info',
-        title: `New Card: ${latestCard.title}`
+        title: `Card Created: ${latestCard.title}`
         })
     }
     removeCard(cardId){

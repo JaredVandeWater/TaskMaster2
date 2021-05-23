@@ -10729,12 +10729,19 @@ li{
     max-width: 24rem !important;
     min-height: 3.5rem !important;
     display: flex !important;
-    justify-content: center !important;
     align-items: center !important;
     padding: 0 !important;
     overflow-wrap:break-word;
     flex-wrap: wrap !important; 
     
+}
+
+.my-swal-icon{
+  margin-left: .5rem !important;
+  margin-right: 0 !important;
+}
+.my-swal-title{
+  margin: .5rem !important;
 }
 .my-swal-container{
   height: auto !important;
