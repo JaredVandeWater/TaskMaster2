@@ -4289,7 +4289,7 @@ input[type=button].btn-block {
   background-color: white;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0, 0, 0, 0
+  border-radius: 1.3rem;
 }
 .card > hr {
   margin-right: 0;
@@ -7316,11 +7316,11 @@ button.bg-dark:focus {
 }
 
 .shadow {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.294) !important;
 }
 
 .shadow-lg {
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.349) !important;
 }
 
 .shadow-none {
@@ -10707,15 +10707,18 @@ li{
 }
 .my-white-text{
   color: #FFFFFF;
-  background: #FFFFFF;
-  text-shadow: 2px 2px 0 #000000, 2px -2px 0 #000000, -2px 2px 0 #000000, -2px -2px 0 #000000, 2px 0px 0 #000000, 0px 2px 0 #000000, -2px 0px 0 #000000, 0px -2px 0 #000000;
+  text-shadow: 1px 1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, -1px -1px 0 #000000, 1px 0px 0 #000000, 0px 1px 0 #000000, -1px 0px 0 #000000, 0px -1px 0 #000000;
   color: #FFFFFF;
-  background: #FFFFFF;
 }
 .my-x-btn{
   display: inline-flex;
   color: rgba(0, 0, 0, 0.37);
 }
+
+.my-top-x{
+  margin-top: .5rem;
+}
+
 .my-nav-items{
   display: grid;
   grid-auto-flow: column;
@@ -10760,13 +10763,6 @@ li{
   background-repeat: round;
 }
 
-.my-card-bottom{
-border-radius: 0, 0, 50%, 50%;
-}
-
-.my-card-top{
-border-radius: 50%, 50%, 0, 0;
-}
 
 .my-color-picker{
   margin:0;
@@ -10776,8 +10772,30 @@ border-radius: 50%, 50%, 0, 0;
   border: outset;
   border-color: white;
   border-style: solid;
-  
+  align-self: center;
+  cursor: pointer;
 }
-.my-color-picker:focus{
-  outline: none;
+
+ .my-logo {
+   letter-spacing: 0.2;
+    font-size: 42px;
+    color: #1bb24b;
+    font-family: Impact, Charcoal, sans-serif;
+    text-shadow: 0px 0px 0 rgb(-21,130,27),
+                 -1px 1px 0 rgb(-44,107,4),
+                 -2px 2px 0 rgb(-66,85,0),
+                 -3px 3px 0 rgb(-89,62,0),
+                 -4px 4px 0 rgb(-111,40,0),
+                 -5px 5px  0 rgb(-133,18,0),
+                 -6px 6px 5px rgba(0,0,0,0.32),
+                 -6px 6px 1px rgba(0,0,0,0.5),
+                 0px 0px 5px rgba(0,0,0,.2);
+ }
+
+.my-t-border{
+  border-top-right-radius: 1.3rem;
+  border-top-left-radius: 1.3rem;
+}
+.my-min-form{
+  min-width: 100%;
 }

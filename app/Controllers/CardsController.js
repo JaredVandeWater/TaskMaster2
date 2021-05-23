@@ -10,11 +10,11 @@ import { loadState } from "../Utils/LocalStorage.js"
                 let thisCardsTasks = ProxyState.tasks.filter(t=>t.cardId===c.id)
                 template+=`
                     <div class="justify-content-center col-lg-3 col-md-4 my-auto pt-4">
-                    <div class="card shadow border-0">
+                    <div class="card shadow-lg border-0">
                         <div>
-                            <div class="text-center my-white-text pb-2" style="background-color: ${c.color};">
+                            <div class="text-center my-white-text my-t-border pb-2" style="background-color: ${c.color};">
                                 <div class="d-flex justify-content-end">
-                                    <button onclick="app.cardsController.removeCard('${c.id}')" class="btn my-x-btn">
+                                    <button onclick="app.cardsController.removeCard('${c.id}')" class="btn my-x-btn my-top-x">
                                         <i class="fa fa-times fa-lg"></i>
                                     </button>
                                 </div>

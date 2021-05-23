@@ -9,25 +9,31 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style/main.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>TaskMaster</title>
+    <title>TaskMaster | Every Task Matters</title>
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-dark navbar-expand bg-dark text-light d-flex justify-content-between">
+        <nav class="navbar navbar-dark navbar-expand bg-dark text-light d-flex justify-content-between py-0">
             <a class="navbar-brand">
-                <img src="https://freesvg.org/img/Checkmark.png" width="45" height="45" alt="" loading="lazy">
-                <span class="ml-2 d-none d-md-inline">TaskMaster</span>
+                <div class="d-flex justify-content-center">
+                    <div class="my-auto mr-2">
+                        <img src="https://freesvg.org/img/Checkmark.png" width="45" height="45" alt="" loading="lazy">
+                    </div>
+                    <span class="ml-2 d-none d-md-inline my-logo">TaskMaster</span>
+                </div>
+
             </a>
             <div class="form-group my-d-contents">
                 <form onsubmit="app.cardsController.addCard(event)">
                     <div class="my-nav-items">
                         <label for="create-card" class="sr-only"></label>
-                        <input type="text" name="" id="title" class="form-control" title="New Card Title"
+                        <input type="text" id="title" class="form-control my-min-form" title="New Card Title"
                             placeholder="Card Title..." required minlength="3" maxlength="15">
                         <label for="create-color" class="sr-only"></label>
                         <input class="mx-2 my-color-picker" title="Color Picker" type="color" id="color">
-                        <button title="Create Card" type="submit" class="btn btn-info">Create</button>
+                        <button title="Create Card" type="submit"
+                            class="btn btn-info my-white-text"><strong>NEW</strong></button>
                     </div>
                 </form>
             </div>
