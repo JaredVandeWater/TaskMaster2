@@ -15,10 +15,11 @@ import { loadState } from "../Utils/LocalStorage.js"
                             <div class="text-center my-white-text" style="background-color: ${c.color};">
                                 <div class="d-flex justify-content-end">
                                     <button onclick="app.cardsController.removeCard('${c.id}')" class="btn my-x-btn">
-                                        <i class="fa fa-times"></i>
+                                        <i class="fa fa-times fa-lg"></i>
                                     </button>
                                 </div>
-                                <h3 class="card-title pt-2 ">${c.title}</h3>
+                                <h3 class="card-title">${c.title}</h3>
+                                <hr>
                                 <h4>Tasks Completed</h4>
                                 <h5 class="pb-2"><span>${thisCardsTasks.filter(t => t.checked === true).length}</span> / <span>${thisCardsTasks.length}</span></h5>
                             </div>
