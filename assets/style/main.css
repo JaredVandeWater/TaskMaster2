@@ -4289,7 +4289,7 @@ input[type=button].btn-block {
   background-color: white;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  border-radius: 0, 0, 0, 0
 }
 .card > hr {
   margin-right: 0;
@@ -10714,6 +10714,7 @@ li{
 }
 .my-x-btn{
   display: inline-flex;
+  color: rgba(0, 0, 0, 0.37);
 }
 .my-nav-items{
   display: grid;
@@ -10754,3 +10755,15 @@ li{
   text-decoration-thickness: 20%;
 }
 
+.my-background{
+  background-image:url('/assets/img/beige-tiles.png');
+  background-repeat: round;
+}
+
+.my-card-bottom{
+border-radius: 0, 0, 50%, 50%;
+}
+
+.my-card-top{
+border-radius: 50%, 50%, 0, 0;
+}

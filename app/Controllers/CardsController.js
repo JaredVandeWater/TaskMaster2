@@ -9,10 +9,10 @@ import { loadState } from "../Utils/LocalStorage.js"
             ProxyState.cards.forEach(c=>{
                 let thisCardsTasks = ProxyState.tasks.filter(t=>t.cardId===c.id)
                 template+=`
-                    <div class="justify-content-center col-lg-3 col-md-4 my-auto pt-2">
-                    <div class="card shadow">
+                    <div class="justify-content-center col-lg-3 col-md-4 my-auto pt-4">
+                    <div class="card shadow border-0">
                         <div>
-                            <div class="text-center my-white-text" style="background-color: ${c.color};">
+                            <div class="text-center my-white-text pb-2" style="background-color: ${c.color};">
                                 <div class="d-flex justify-content-end">
                                     <button onclick="app.cardsController.removeCard('${c.id}')" class="btn my-x-btn">
                                         <i class="fa fa-times fa-lg"></i>
@@ -21,7 +21,7 @@ import { loadState } from "../Utils/LocalStorage.js"
                                 <h3 class="card-title">${c.title}</h3>
                                 <hr>
                                 <h4>Tasks Completed</h4>
-                                <h5 class="pb-2"><span>${thisCardsTasks.filter(t => t.checked === true).length}</span> / <span>${thisCardsTasks.length}</span></h5>
+                                <h5><span>${thisCardsTasks.filter(t => t.checked === true).length}</span> / <span>${thisCardsTasks.length}</span></h5>
                             </div>
                             `
                             
@@ -46,7 +46,7 @@ import { loadState } from "../Utils/LocalStorage.js"
                                     });
                             template+=
                             `
-                            <form class="form-group" onsubmit="app.cardsController.addTask(event, '${c.id}')">
+                            <form class="form-group mt-2" onsubmit="app.cardsController.addTask(event, '${c.id}')">
                                 <div class="d-flex">
                                     <input class="form-control ml-2" type="text" id="name" placeholder="New Task..." required minLength="3" maxLength="50">
                                     <button title="Submit New Task" class="btn text-success px-1 pr-2" type="submit"><i
